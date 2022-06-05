@@ -35,7 +35,7 @@ class GPSService : Service()
     /**
      * sendResultFromGPSService method is used to send a value from GPSService to the Binding Activity.
      * */
-    fun sendResultFromGPSService()
+    private fun sendResultFromGPSService()
     {
         this.resultFromGPSService.getResult("Hello GPS Service!!!")
     }
