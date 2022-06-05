@@ -29,6 +29,7 @@ class GPSService : Service()
     fun registerCallBack(resultFromGPSService : ResultFromGPSService?)
     {
         this.resultFromGPSService = resultFromGPSService ?: return
+        sendResultFromGPSService()
     }
 
     /**
