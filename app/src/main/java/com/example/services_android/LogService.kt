@@ -5,46 +5,73 @@ import android.content.Intent
 import android.os.IBinder
 import android.util.Log
 
+private const val SERVICE_MESSAGE = "Something is running the background..."
+
+/**
+ * LogService
+ * */
 class LogService : Service()
 {
     companion object
     {
-        const val TAG = "LogService"
+        /**
+         * TAG is a constant used to tag the logs generated from LogService class.
+         * */
+        const val TAG : String = "LogService"
     }
 
+    /**
+     * onCreate callback method of the service.
+     * */
     override fun onCreate()
     {
         printLogs("onCreate")
         super.onCreate()
     }
 
+    /**
+     * onBind callback method of the Service.
+     * */
     override fun onBind(intent : Intent) : IBinder?
     {
-        return null;
+        return null
     }
 
+    /**
+     * onStartCommand callback method of the Service.
+     * @param intent
+     * @param flags
+     * @param startId
+     * */
     override fun onStartCommand(intent : Intent? , flags : Int , startId : Int) : Int
     {
         printLogs("onStartCommand")
         val runnable = Runnable {
             for (i in 1 .. 10)
             {
-                printLogs("Something is running the background...")
+                printLogs(SERVICE_MESSAGE)
                 Thread.sleep(1000)
             }
             stopSelf()
         }
         val thread = Thread(runnable)
         thread.start()
+        thread.interrupt()
         return super.onStartCommand(intent , flags , startId)
     }
 
+    /**
+     * onDestroy callback method of the Service.
+     * */
     override fun onDestroy()
     {
         printLogs("onDestroy")
         super.onDestroy()
     }
 
+    /**
+     * printLogs method is used to print logs from LogService class.
+     * */
     private fun printLogs(message : String)
     {
         Log.d(TAG , message)

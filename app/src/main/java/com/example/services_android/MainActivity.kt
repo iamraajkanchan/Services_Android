@@ -35,10 +35,16 @@ class MainActivity : AppCompatActivity()
     {
         super.onStart()
         btnLoginActivity.setOnClickListener {
-
+            Intent(this , LogServiceActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(this)
+            }
         }
         btnThreadActivity.setOnClickListener {
-
+            Intent(this , ThreadActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(this)
+            }
         }
     }
 }
