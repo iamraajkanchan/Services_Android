@@ -22,10 +22,6 @@ class MainActivity : AppCompatActivity()
         setContentView(R.layout.activity_main)
         btnLoginActivity = findViewById(R.id.btnLogActivity)
         btnThreadActivity = findViewById(R.id.btnThreadActivity)
-
-        Intent(this , LogService::class.java).apply {
-            startService(this)
-        }
     }
 
     /**
