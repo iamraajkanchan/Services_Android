@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity()
 {
     private lateinit var btnLoginActivity : Button
     private lateinit var btnThreadActivity : Button
+    private lateinit var btnBindServiceActivity : Button
 
     /**
      * onCreate callback method of the Activity.
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity()
         setContentView(R.layout.activity_main)
         btnLoginActivity = findViewById(R.id.btnLogActivity)
         btnThreadActivity = findViewById(R.id.btnThreadActivity)
+        btnBindServiceActivity = findViewById(R.id.btnBindServiceActivity)
     }
 
     /**
@@ -38,6 +40,12 @@ class MainActivity : AppCompatActivity()
         }
         btnThreadActivity.setOnClickListener {
             Intent(this , ThreadActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(this)
+            }
+        }
+        btnBindServiceActivity.setOnClickListener {
+            Intent(this , BindServiceActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(this)
             }

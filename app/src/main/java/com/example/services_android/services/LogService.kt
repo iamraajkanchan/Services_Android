@@ -1,9 +1,10 @@
-package com.example.services_android
+package com.example.services_android.services
 
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
+import com.example.services_android.LogServiceActivity
 
 private const val SERVICE_MESSAGE = "Something is running the background..."
 
@@ -45,7 +46,9 @@ class LogService : Service()
      * */
     override fun onStartCommand(intent : Intent? , flags : Int , startId : Int) : Int
     {
-        printLogs("onStartCommand")
+        super.onStartCommand(intent , flags , startId)
+        val message : String = intent?.getStringExtra(LogServiceActivity.SERVICE_HELLO_PARAM) !!
+        printLogs("onStartCommand :: message : $message")
         val runnable = Runnable {
             for (i in 1 .. 10)
             {
@@ -58,7 +61,7 @@ class LogService : Service()
         thread.start()
 
         /* thread.interrupt() - Do not use this command in android. */
-        return super.onStartCommand(intent , flags , startId)
+        return START_NOT_STICKY
     }
 
     /**
