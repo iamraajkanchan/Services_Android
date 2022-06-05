@@ -10,6 +10,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Services_Android">
         <activity
+                android:name=".IntentServiceActivity"
+                android:exported="false" />
+        <activity
                 android:name=".BindServiceActivity"
                 android:exported="false" />
         <activity
@@ -23,9 +26,13 @@
                 android:name=".services.LogService"
                 android:enabled="true"
                 android:exported="true" />
-
         <service
                 android:name=".services.GPSService"
+                android:enabled="true"
+                android:exported="true" />
+
+        <service
+                android:name=".services.MyIntentService"
                 android:enabled="true"
                 android:exported="true" />
 

@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Programming/Android/ProAndroid/Services_Android/app/src/main/res/layout/activity_bind_service.xml" value="0.25" />
+        <entry key="..\:/Programming/Android/ProAndroid/Services_Android/app/src/main/res/layout/activity_intent_service.xml" value="0.25" />
         <entry key="..\:/Programming/Android/ProAndroid/Services_Android/app/src/main/res/layout/activity_log_service.xml" value="0.25" />
         <entry key="..\:/Programming/Android/ProAndroid/Services_Android/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Programming/Android/ProAndroid/Services_Android/app/src/main/res/layout/activity_thread.xml" value="0.25" />
