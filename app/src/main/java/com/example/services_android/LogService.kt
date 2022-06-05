@@ -25,8 +25,8 @@ class LogService : Service()
      * */
     override fun onCreate()
     {
-        printLogs("onCreate")
         super.onCreate()
+        printLogs("onCreate")
     }
 
     /**
@@ -56,7 +56,8 @@ class LogService : Service()
         }
         val thread = Thread(runnable)
         thread.start()
-        thread.interrupt()
+
+        /* thread.interrupt() - Do not use this command in android. */
         return super.onStartCommand(intent , flags , startId)
     }
 
@@ -65,8 +66,8 @@ class LogService : Service()
      * */
     override fun onDestroy()
     {
-        printLogs("onDestroy")
         super.onDestroy()
+        printLogs("onDestroy")
     }
 
     /**
